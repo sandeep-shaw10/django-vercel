@@ -1,0 +1,13 @@
+# Ignore the .env file
+.env
+
+# Ignore the venv-django folder
+venv-django/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore the Django static and media directories (if applicable)
+staticfiles/
+media/
