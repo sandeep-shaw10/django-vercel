@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="bg-gray-100 overflow-hidden">
+        {% block content %}{% endblock %}
+    </div>
+    <script>
+        const smNavView = document.getElementById("sm-nav-view");
+        const toggleBtn = document.getElementById("button-view");
+        const Bars = `<svg fill="bg-gray-800" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>icn/menu</title>
+                            <path d="M2 3h12a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2zm0 4h12a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2zm0 4h12a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2z" id="a"/>
+                        </svg>`
+        const Cross = `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 20L4 4.00003M20 4L4.00002 20" class="stroke-gray-800" stroke-width="3" stroke-linecap="round"/>
+                            </svg>`
+        toggleBtn.innerHTML = Bars;
+
+        function toggleView() {
+            if (smNavView.classList.contains("hidden")) {
+                smNavView.classList.remove("hidden");
+                toggleBtn.innerHTML = Cross;
+            } else {
+                smNavView.classList.add("hidden");
+                toggleBtn.innerHTML = Bars
+            }
+        }
+    </script>
+</body>
+
+</html>
