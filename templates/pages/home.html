@@ -1,51 +1,29 @@
-<ul>
-    {% for link in links %}
-    <div class="">
-        <h1 id="page-id-{{ link.url }}" class="font-4xl uppercase pt-4">{{ link.name }}</h1>
-        <div class="mx-auto bg-white rounded shadow-lg w-96 rounded-2xl">
-            <div class="h-48 p-3 overflow-hidden bg-gray-200 animate-pulse">
+<div class="overflow-hidden relative flex flex-col-reverse lg:flex-row lg:items-center lg:py-16">
+    <div class="w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-0">
+        <h2 class="text-gray-900 sm:text-4xl">
+            <div class="block text-xl font-semibold ">
+                I'm
             </div>
-            <div class="p-3 h-">
-                <div class="grid grid-cols-3 gap-4 mt-2">
-                    <div class="h-8 bg-gray-200 rounded animate-pulse">
-                    </div>
-                    <div class="h-8 bg-gray-200 rounded animate-pulse">
-                    </div>
-                    <div class="h-8 bg-gray-200 rounded animate-pulse">
-                    </div>
-                    <div class="h-8 col-span-2 bg-gray-200 rounded animate-pulse">
-                    </div>
-                    <div class="h-8 bg-gray-200 rounded  animate-pulse">
-                    </div>
-                    <div class="...">
-                    </div>
-                    <div class="col-span-2 ...">
-                    </div>
-                </div>
+            <div class="block text-3xl font-bold ">
+                UI/UX/DESIGNER
             </div>
-        </div>
-        <div class="mx-auto bg-white rounded shadow-lg w-96 rounded-2xl">
-            <div class="h-48 p-3 overflow-hidden bg-gray-200 animate-pulse">
-            </div>
-            <div class="p-3 h-">
-                <div class="grid grid-cols-3 gap-4 mt-2">
-                    <div class="h-8 bg-gray-200 rounded animate-pulse">
-                    </div>
-                    <div class="h-8 bg-gray-200 rounded animate-pulse">
-                    </div>
-                    <div class="h-8 bg-gray-200 rounded animate-pulse">
-                    </div>
-                    <div class="h-8 col-span-2 bg-gray-200 rounded animate-pulse">
-                    </div>
-                    <div class="h-8 bg-gray-200 rounded  animate-pulse">
-                    </div>
-                    <div class="...">
-                    </div>
-                    <div class="col-span-2 ...">
-                    </div>
-                </div>
+        </h2>
+        <p class="text-md mt-4 text-gray-400">
+            Passionate about crafting intuitive and engaging experiences for users. 
+            With a keen eye for detail and a focus on user-centered design, Strive to create digital products that not only look great but also solve real-world problems.        </p>
+        <div class="lg:mt-0 lg:flex-shrink-0">
+            <div class="mt-12 inline-flex rounded-md shadow">
+                <button type="button" class="py-2 px-4  bg-amber-500 hover:bg-amber-700 focus:ring-amber-500 focus:ring-offset-amber-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                    RESUME
+                </button>
             </div>
         </div>
     </div>
-    {% endfor %}
-</ul>
+    <div class="flex items-center gap-8 p-8 md:p-24 ">
+        <img title="Ben Kolde" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=455&q=80" class="w-1/2 rounded-lg" alt="Tree"/>
+        <div>
+            <img title="Unseen Studio" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="mb-8 rounded-lg" alt="Tree"/>
+            <img title="Emily Bernal" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" class="rounded-lg" alt="Tree"/>
+        </div>
+    </div>
+</div>
