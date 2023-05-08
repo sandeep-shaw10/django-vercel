@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block content %}
+
+<div class="w-full p-12 bg-white">
+    <div class="flex justify-center mb-12 header">
+        <div class="title text-center">
+            <p class="mb-4 text-4xl font-bold text-gray-800">
+                My Blogs
+            </p>
+            <a href="/" class="text-2xl font-light text-gray-400">
+                <div class="name">
+                    <div class="underline decoration-pink-500/30 text-lg font-mono font-thin"> Portfolio </div>
+                </div>
+            </a>
+        </div>
+        </div>
+
+        <div>
+            <div class="text-2xl font-bold text-gray-800 flex justify-center">Featured</div>
+            <div class="pt-4 flex flex-row flex-wrap justify-center items-center content-center">
+                {% for i in featured %}
+                <div class="p-2"><div class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-100 sm:w-60 md:w-80">
+                    <a href="#" class="block w-full h-full">
+                        <img alt="blog photo" src="https://www.tailwind-kit.com/images/blog/1.jpg" class="object-cover w-full max-h-40"/>
+                        <div class="w-full p-4 bg-white">
+                            <p class="font-medium text-red-500 text-md">
+                                Article
+                            </p>
+                            <p class="mb-2 text-xl font-medium text-amber-800">
+                                E-commerce Website Redesign
+                            </p>
+                            <p class="font-light text-amber-400 text-md">
+                                Redesigned the user interface and experience of an e-commerce website, resulting in a 40%...
+                            </p>
+                            <div class="flex flex-wrap items-center mt-4 justify-starts">
+                                <div class="text-xs mr-2 py-1.5 px-4 text-amber-600 bg-amber-100 rounded-2xl mb-1">
+                                    #{{ i }}
+                                </div>
+                                <div class="text-xs mr-2 py-1.5 px-4 text-amber-600 bg-amber-100 rounded-2xl mb-1">
+                                    #Ecommerce
+                                </div>
+                                <div class="text-xs mr-2 py-1.5 px-4 text-amber-600 bg-amber-100 rounded-2xl mb-1">
+                                    #WebDesign
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    
+    
+            {% endfor %}
+        </div>
+        </div>
+
+        <div class="pt-8 md:pt-16 lg:pt-32">
+            <div class="text-2xl font-bold text-gray-800 flex justify-center">Recent</div>
+            <div class="pt-4 flex flex-row flex-wrap justify-center items-center content-center">
+                {% for i in blog %}
+                <div class="p-2"><div class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-100 sm:w-60 md:w-80">
+                    <a href="#" class="block w-full h-full">
+                        <img alt="blog photo" src="https://www.tailwind-kit.com/images/blog/1.jpg" class="object-cover w-full max-h-40"/>
+                        <div class="w-full p-4 bg-white">
+                            <p class="font-medium text-red-500 text-md">
+                                Article
+                            </p>
+                            <p class="mb-2 text-xl font-medium text-amber-800">
+                                E-commerce Website Redesign
+                            </p>
+                            <p class="font-light text-amber-400 text-md">
+                                Redesigned the user interface and experience of an e-commerce website, resulting in a 40%...
+                            </p>
+                            <div class="flex flex-wrap items-center mt-4 justify-starts">
+                                <div class="text-xs mr-2 py-1.5 px-4 text-amber-600 bg-amber-100 rounded-2xl mb-1">
+                                    #{{ i }}
+                                </div>
+                                <div class="text-xs mr-2 py-1.5 px-4 text-amber-600 bg-amber-100 rounded-2xl mb-1">
+                                    #Ecommerce
+                                </div>
+                                <div class="text-xs mr-2 py-1.5 px-4 text-amber-600 bg-amber-100 rounded-2xl mb-1">
+                                    #WebDesign
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    
+    
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
