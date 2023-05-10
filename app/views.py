@@ -1,5 +1,6 @@
 from django.shortcuts import render
-import random
+from .models import PersonalData
+
 
 def index(request):
     links = [
@@ -9,7 +10,10 @@ def index(request):
         { 'name': 'Project', 'url': 'project'},
         { 'name': 'Skills', 'url': 'skills'},
     ]
+
+    personal = PersonalData.objects.latest('id')
+
     skills = [('Java', 70), ('Python', 82), ('C++', 170),('Bash', 80),('Photoshop', 80),('Figma', 80)]
     project = ['1', '2', '3', '4', '5', '6']
-    context = { 'links': links, 'request': request, 'project': project, 'skills': skills }
+    context = { 'links': links, 'personal': personal, 'project': project, 'skills': skills }
     return render(request,'index.html', context)

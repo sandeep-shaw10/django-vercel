@@ -5,19 +5,21 @@
                 I'm
             </div>
             <div class="block text-3xl font-bold ">
-                UI/UX/DESIGNER
+                {{ personal.occupation }}
             </div>
         </h2>
         <p class="text-md mt-4 text-gray-400">
-            Passionate about crafting intuitive and engaging experiences for users. 
-            With a keen eye for detail and a focus on user-centered design, Strive to create digital products that not only look great but also solve real-world problems.        </p>
+            {{ personal.banner_text }}
+        </p>
+        {% if personal.resume_link %}
         <div class="lg:mt-0 lg:flex-shrink-0">
             <div class="mt-12 inline-flex rounded-md shadow">
-                <button type="button" class="py-2 px-4  bg-amber-500 hover:bg-amber-700 focus:ring-amber-500 focus:ring-offset-amber-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                <a href="{{ personal.resume_link }}" type="button" class="py-2 px-4  bg-amber-500 hover:bg-amber-700 focus:ring-amber-500 focus:ring-offset-amber-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                     RESUME
-                </button>
+                </a>
             </div>
         </div>
+        {% endif %}
     </div>
     <div class="flex items-center gap-8 p-8 md:p-24 ">
         <img title="Ben Kolde" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=455&q=80" class="w-1/2 rounded-lg" alt="Tree"/>
