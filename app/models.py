@@ -55,3 +55,24 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Project(models.Model):
+    title = models.CharField(max_length=100)
+    date = models.DateField()
+    image_link = models.URLField()
+    description = models.TextField()
+    project_link = models.URLField()
+    tags = models.CharField(max_length=100, help_text='Separate tags with "," and First 3 tag will be considered ')
+    is_archived = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
+    
+    def image_tag(self):
+        if self.image_link:
+            return format_html('<img src="{}" width="192px"/>'.format(self.image_link))
+        else:
+            return ''
+    
+    image_tag.short_description = 'Image'
