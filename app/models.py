@@ -28,3 +28,21 @@ class PersonalData(models.Model):
             return ''
     
     image_tag.short_description = 'Image'
+
+
+class Experience(models.Model):
+    start_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
+    role = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    about = models.TextField()
+    links = models.URLField(null=True, blank=True)
+    is_current = models.BooleanField(default=False, verbose_name='Working Currently')
+
+    def __str__(self):
+        return self.role
+    
+    def work(self):
+        return f'{self.role}, {self.company}'
+    
+    work.short_description = 'Position'
