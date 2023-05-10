@@ -19,3 +19,9 @@
 - py manage.py makemigrations 
 - py manage.py migrate
 - py manage.py createsuperuser
+
+Tools
+- https://www.tailwind-kit.com
+- https://flowbite.com/
+- https://unsplash.com/
+- https://xsgames.co/randomusers/

@@ -16,13 +16,13 @@
                 <a target="_blank" href={{project.project_link}} class="block w-full h-full">
                     <img alt="blog photo" src={{project.image_link}} class="object-cover w-full max-h-40"/>
                     <div class="w-full p-4 bg-white">
-                        <p class="mb-2 text-xl font-medium text-amber-800">{{project.title}}</p>
-                        <p class="font-light text-amber-400 text-md">{{project.description}}</p>
+                        <p class="mb-2 text-xl font-medium text-shaw-800">{{project.title}}</p>
+                        <p class="font-light text-shaw-400 text-md">{{project.description}}</p>
                         <div class="flex flex-wrap items-center mt-4 justify-starts">
                             {% if project.tags %}
                                 {% with tags=project.tags|format_tags %}
                                     {% for tag in tags%}
-                                        <div class="text-xs mr-2 py-1.5 px-4 text-amber-600 bg-amber-100 rounded-2xl mb-1">
+                                        <div class="text-xs mr-2 py-1.5 px-4 text-shaw-600 bg-shaw-100 rounded-2xl mb-1">
                                             {{ tag }}
                                         </div>
                                     {% endfor %}

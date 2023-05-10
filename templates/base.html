@@ -8,6 +8,35 @@
         {% block title %} {% endblock %}
     </title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Scope to format color
+        tailwind.config = {
+            theme: {
+                extend: { 
+                    colors: {
+                        'shaw': {
+                            0: '#e2f3f1',
+                            100: '#c6e8e4',
+                            200: '#a9ddd6',
+                            300: '#96c7c1',
+                            400: '#83b1ab',
+                            500: '#5d857f',
+                            600: '#375954',
+                            700: '#24433e',
+                            800: '#1b3833',
+                            900: '#112c28',
+                            999: '#061714'
+                        },
+                    }
+                }
+            },
+        }
+    </script>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,6 +44,7 @@
         {% block content %}{% endblock %}
     </div>
     <script>
+        
         const smNavView = document.getElementById("sm-nav-view");
         const toggleBtn = document.getElementById("button-view");
         const Bars = `<svg fill="bg-gray-800" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -40,6 +70,37 @@
             smNavView.classList.add("hidden");
             toggleBtn.innerHTML = Bars
         }
+
+        // Get all the nav links and sections
+    const navLinks = document.querySelectorAll('[data-nav-link]')
+    const navSections = document.querySelectorAll('.nav-section')
+
+    // Set up a function to handle the scrolling event
+    function handleScroll() {
+                // Loop through the nav sections and find the active one
+        let activeSection = null
+        navSections.forEach(section => {
+            const rect = section.getBoundingClientRect()
+            if (rect.top <= window.innerHeight/2) {
+                activeSection = section
+            }
+        })
+
+        // Loop through the nav links and set the active one
+        navLinks.forEach(link => {
+            if (link.getAttribute('data-nav-link') === activeSection.id) {
+                link.classList.add('text-shaw-500', 'underline', 'decoration-blue-500/30')
+            } else {
+                link.classList.remove('text-shaw-500', 'underline', 'decoration-blue-500/30')
+            }
+        })
+    }
+
+    // Attach the handleScroll function to the window scroll event
+    window.addEventListener('scroll', handleScroll)
+
+    // Call the handleScroll function once to set the initial state
+    handleScroll()
     </script>
 </body>
 

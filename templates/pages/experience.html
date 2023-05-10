@@ -9,13 +9,13 @@
             As a graphic designer, I have had the opportunity to work with a diverse range of clients and projects, including branding, print design, and digital design. With a strong foundation in design principles and software skills, I strive to create visually compelling designs that effectively communicate my clients' messages.
         </p>
       <div>
-        <ol class="relative border-l border-amber-200">
+        <ol class="relative border-l border-shaw-200">
             {% for experience in experiences %}
                 <li class="mb-10 ml-4">
-                    <div class="absolute w-3 h-3 bg-amber-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                    <div class="absolute w-3 h-3 bg-shaw-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
                     <time class="mb-1 text-sm font-normal leading-none text-gray-400">{{ experience.start_date }}
                         {% if experience.is_current %}
-                            <span class="ms-2 bg-amber-200 text-amber-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">
+                            <span class="ms-2 bg-shaw-200 text-shaw-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">
                                 Currently Working
                             </span>
                         {% else %}
@@ -27,7 +27,7 @@
                     <h3 class="text-lg font-semibold text-gray-900">{{ experience.role }}, {{ experience.company }}</h3>
                     <p class="mb-4 text-base font-normal text-gray-500">{{ experience.about }}</p>
                     {% if experience.links %}
-                        <a href="{{ experience.links }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-amber-200 rounded-lg hover:bg-amber-100 hover:text-amber-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-amber-200 focus:text-amber-700 ">
+                        <a href="{{ experience.links }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-shaw-200 rounded-lg hover:bg-shaw-100 hover:text-shaw-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-shaw-200 focus:text-shaw-700 ">
                             Visit
                             <svg class="w-3 h-3 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" 
