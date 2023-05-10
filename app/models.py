@@ -1,4 +1,5 @@
 from django.utils.html import format_html
+from django.core.validators import MaxValueValidator
 from django.db import models
 
 
@@ -46,3 +47,11 @@ class Experience(models.Model):
         return f'{self.role}, {self.company}'
     
     work.short_description = 'Position'
+
+
+class Skill(models.Model):
+    name = models.CharField(max_length=100)
+    percentage = models.PositiveSmallIntegerField(default=0, blank=True, null=True, validators=[MaxValueValidator(100)])
+
+    def __str__(self):
+        return self.name
