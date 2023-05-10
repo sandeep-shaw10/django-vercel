@@ -1,4 +1,5 @@
 <div class="overflow-hidden relative flex flex-col-reverse lg:flex-row lg:items-center lg:py-16">
+    {% if personal %}
     <div class="w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-0">
         <h2 class="text-gray-900 sm:text-4xl">
             <div class="block text-xl font-semibold ">
@@ -21,6 +22,7 @@
         </div>
         {% endif %}
     </div>
+    {% endif %}
     <div class="flex items-center gap-8 p-8 md:p-24 ">
         <img title="Ben Kolde" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=455&q=80" class="w-1/2 rounded-lg" alt="Tree"/>
         <div>

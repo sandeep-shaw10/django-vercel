@@ -7,7 +7,10 @@
 {% block content %}
 
 <div class="flex lg:flex-row flex-col">
+
+
     <div class="">
+
         <div class="lg:hidden block p-4 bg-amber-200 fixed w-full top-0 z-10">
             <div class="flex justify-between items-center flex-row">
                 <div class="underline decoration-pink-500/30 text-2xl font-mono"> Portfolio </div>
@@ -20,7 +23,11 @@
                 <div class="flex flex-col sm:flex-row items-center justify-around">
                     <div class="sm-image">
                         <div class="px-4 pt-8">
-                            <img alt="profile" style="width: 192px; height: 192px; object-fit: cover;" src="{{ personal.image_link }}" class="mx-auto object-cover rounded-full h-100 w-100 "/>
+                            {% if personal.image_link %}
+                                <img alt="profile" style="width: 192px; height: 192px; object-fit: cover;" src="{{ personal.image_link }}" class="mx-auto object-cover rounded-full h-100 w-100 "/>
+                            {% else %}
+                                <img alt="profile" style="width: 192px; height: 192px; object-fit: cover;" src="https://xsgames.co/randomusers/assets/avatars/female/1.jpg" class="mx-auto object-cover rounded-full h-100 w-100 "/>
+                            {% endif %}
                         </div>
                         <div class="name pt-2 pb-1">
                             <div class="underline decoration-pink-500/30 text-2xl font-mono text-center">
@@ -41,31 +48,31 @@
                         <div class="social px-4 pb-4">
                             <div class="pt-8 flex max-w-xs mx-auto items-center justify-between">
                                 {% if personal.email %}
-                                <a href="mailto:{{personal.email}}" class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" xmlns="http://www.w3.org/2000/svg">
+                                <a href="mailto:{{personal.email}}" class="text-amber-600 transition-colors duration-200 hover:text-amber-50">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-amber-50" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm3.519 0L12 11.671 18.481 6H5.52zM20 7.329l-7.341 6.424a1 1 0 0 1-1.318 0L4 7.329V18h16V7.329z"/>
                                     </svg>
                                 </a>
                                 {% endif %}
                                 {% if personal.twitter_link %}
-                                <a href="{{personal.twitter_link}}" class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                                    <svg width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                <a href="{{personal.twitter_link}}" class="text-amber-600 transition-colors duration-200 hover:text-amber-50">
+                                    <svg width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-amber-50" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z">
                                         </path>
                                     </svg>
                                 </a>
                                 {% endif %}
                                 {% if personal.github_link %}
-                                <a href="{{personal.github_link}}" class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792">
+                                <a href="{{personal.github_link}}" class="text-amber-600 transition-colors duration-200 hover:text-amber-50">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-amber-50" viewBox="0 0 1792 1792">
                                         <path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z">
                                         </path>
                                     </svg>
                                 </a>
                                 {% endif %}
                                 {% if personal.linkedin_link %}
-                                <a href="{{personal.linkedin_link}}" class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                                    <svg width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                <a href="{{personal.linkedin_link}}" class="text-amber-600 transition-colors duration-200 hover:text-amber-50">
+                                    <svg width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-amber-50" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z">
                                         </path>
                                     </svg>
@@ -79,7 +86,7 @@
                             <ul>
                                 {% for link in links %}
                                 <li class="pb-2 text-lg text-center"  onclick="closeView()">
-                                    <a class="underline decoration-blue-500/30" href="#page-id-{{ link.url }}">{{ link.name }}</a>
+                                    <a class="underline decoration-blue-500/30" href="#{{ link.url }}">{{ link.name }}</a>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -90,10 +97,15 @@
 
             </div>
         </div>
+
         <div class="hidden lg:block w-64 h-screen p-4 fixed bg-amber-200">
             <div class="underline decoration-pink-500/30 text-2xl font-mono"> Portfolio </div>
             <div class="px-4 pt-8">
-                <img alt="profile" style="width: 192px; height: 192px; object-fit: cover;" src="{{ personal.image_link }}" class="mx-auto object-cover rounded-full h-100 w-100 "/>
+                {% if personal.image_link %}
+                    <img alt="profile" style="width: 192px; height: 192px; object-fit: cover;" src="{{ personal.image_link }}" class="mx-auto object-cover rounded-full h-100 w-100 "/>
+                {% else %}
+                    <img alt="profile" style="width: 192px; height: 192px; object-fit: cover;" src="https://xsgames.co/randomusers/assets/avatars/female/1.jpg" class="mx-auto object-cover rounded-full h-100 w-100 "/>
+                {% endif %}
             </div>
             <div class="name pt-2 pb-1">
                 <div class="underline decoration-pink-500/30 text-2xl font-mono text-center">
@@ -114,31 +126,31 @@
             <div class="social px-4 pb-4">
                 <div class="pt-8 flex max-w-xs mx-auto items-center justify-between">
                     {% if personal.email %}
-                    <a href="mailto:{{personal.email}}" class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" xmlns="http://www.w3.org/2000/svg">
+                    <a href="mailto:{{personal.email}}" class="text-amber-600 transition-colors duration-200 hover:text-amber-50">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-amber-50" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm3.519 0L12 11.671 18.481 6H5.52zM20 7.329l-7.341 6.424a1 1 0 0 1-1.318 0L4 7.329V18h16V7.329z"/>
                         </svg>
                     </a>
                     {% endif %}
                     {% if personal.twitter_link %}
-                    <a href="{{personal.twitter_link}}" class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <svg width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <a href="{{personal.twitter_link}}" class="text-amber-600 transition-colors duration-200 hover:text-amber-50">
+                        <svg width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-amber-50" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z">
                             </path>
                         </svg>
                     </a>
                     {% endif %}
                     {% if personal.github_link %}
-                    <a href="{{personal.github_link}}" class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792">
+                    <a href="{{personal.github_link}}" class="text-amber-600 transition-colors duration-200 hover:text-amber-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-amber-50" viewBox="0 0 1792 1792">
                             <path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z">
                             </path>
                         </svg>
                     </a>
                     {% endif %}
                     {% if personal.linkedin_link %}
-                    <a href="{{personal.linkedin_link}}" class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <svg width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <a href="{{personal.linkedin_link}}" class="text-amber-600 transition-colors duration-200 hover:text-amber-50">
+                        <svg width="20" height="20" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-amber-50" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                             <path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z">
                             </path>
                         </svg>
@@ -150,29 +162,40 @@
                 <ul>
                     {% for link in links %}
                     <li class="pb-2 text-lg">
-                        <a class="underline decoration-blue-500/30" href="#page-id-{{ link.url }}">{{ link.name }}</a>
+                        <a class="underline decoration-blue-500/30" href="#{{ link.url }}">{{ link.name }}</a>
                     </li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
+
     </div>
+
     <div class="p-4 pt-16 lg:pt-0 lg:px-8 lg:pr-4 lg:pl-72 w-screen">
+
+        {% if error %}
+            <span class="ms-2 bg-red-200 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">
+                Error: {{ error }}
+            </span>
+        {% endif %}
+
         {% block home %}
             {% for link in links %}
-            <div id="page-id-{{ link.url }}" class="pt-4">
+            <div id="{{ link.url }}" class="pt-4">
                 {% include "pages/"|add:link.url|add:".html" %}
             </div>
             {% endfor %}
         {% endblock %}
         <footer>
             <div class="w-full mx-auto max-w-screen-xl p-4 flex justify-center pt-8">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 
+            <span class="text-sm text-gray-500 sm:text-center dark:text-amber-600">© 2023 
                 <a href="https://sandeep-shaw10.github.io/" class="hover:underline">Sandeep Shaw</a>. All Rights Reserved.
             </span>
             </div>
         </footer>
     </div>
+
+
 </div>
   
 {% endblock %}

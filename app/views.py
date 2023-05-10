@@ -11,11 +11,22 @@ def index(request):
         { 'name': 'Skills', 'url': 'skills'},
     ]
 
-    personal = PersonalData.objects.latest('id')
-    experiences = Experience.objects.all().order_by('-start_date')
-    skills = Skill.objects.all().order_by('-percentage')
-    projects = Project.objects.filter(is_archived=False).order_by('-date')
+    personal = experiences = skills = projects = error = None
+    try:
+        personal = PersonalData.objects.latest('id')
+        experiences = Experience.objects.all().order_by('-start_date')
+        skills = Skill.objects.all().order_by('-percentage')
+        projects = Project.objects.filter(is_archived=False).order_by('-date')
+    except Exception as e:
+        error = e
 
-    project = ['1', '2', '3', '4', '5', '6']
-    context = { 'links': links, 'personal': personal, 'experiences': experiences, 'projects': projects, 'skills': skills }
+    context = { 
+        'links': links, 
+        'personal': personal, 
+        'experiences': experiences, 
+        'projects': projects, 
+        'skills': skills,
+        'error': error 
+    }
+    
     return render(request,'index.html', context)
