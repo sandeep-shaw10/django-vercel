@@ -25,6 +25,11 @@ adminPath = os.getenv('ADMIN_PATH')
 if(adminPath == None):
     adminPath = 'admin'
 
+# Admin Display
+admin.site.site_header = 'My Name'         
+admin.site.index_title = 'Portfolio'
+admin.site.site_title = 'Sandeep Shaw' 
+
 urlpatterns = [
     path('', include("app.urls")),
     path(f'{adminPath}/', admin.site.urls),

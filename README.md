@@ -19,6 +19,7 @@ This is a template for a basic portfolio website built with Django, Vercel, and 
 - Vercel Account
 - Python Requirements
 
+[requirements.txt](./requirements.txt)
 ```ssh
 asgiref==3.6.0
 Django==4.2.1
@@ -29,11 +30,17 @@ tzdata==2023.3
 whitenoise==6.4.0
 ```
 
-## Step-by-Step Guide
+# Installation and Setup
 
-### 1. Git Clone via `SSH`, `HTTP` or Download `.zip`
 
-### 2. Add Virtual Environment
+
+## 1. Git Clone via `SSH`, `HTTP` or Download `.zip`
+
+```bash
+git clone https://github.com/sandeep-shaw10/django-vercel.git
+```
+
+## 2. Creating and Activating Virtual Environment
 
 Inside Project Directory
 ```bash
@@ -50,21 +57,41 @@ Activate Virtual environment
 source venv-django/Scripts/activate
 ```
 
-### 3. Install Dependency
+## 3. Install Python Dependency
 
 ```python
 pip install -r requirements.txt
 ```
 
-### 4. Add to your Github
+## 4. Create `.env` file
 
-Remove git folder
+Create a `.env` file in the template folder. You may copy it from [.env.example](.env.example)
+
+```bash
+DEBUG='False'
+SECRET_KEY='django-key-should-be-strong-^28%=s79k2icoihozrx-cx'
+ALLOWED_HOSTS='127.0.0.1,.vercel.app'
+POSTGRES_DATABASE='***'
+POSTGRES_USER='***'
+POSTGRES_PASSWORD='***'
+POSTGRES_HOST='***'
+POSTGRES_DB_PORT='5432'
+ADMIN_PATH='my-admin'
+```
+
+## 5. Add to your Github
+
+Login to your Github Account and Create New Repository
+
+Inside your local folder remove git folder if it exists
+
 ```bash
 rm -rf .git
 ```
 
 Add the files to the new repository and Commit
 ```python
+git init
 git add .
 git commit -m "Initial commit"
 ```
@@ -74,49 +101,66 @@ Set the remote URL for the new repository
 git remote add origin <new_repository_url>
 ```
 
-Push the files to the new repository
+Push the files to the new repository to branch 'master'
 ```bash
 git push -u origin master
 ```
 
-### 5. Link to VERCEL
+## 6. Link to VERCEL
 
-Link the Github repo to Vercel with this configure project.
+Login to the vercel account and create NEW project
 
-Add 5 environment variable
+
+Link the Github repository that you currently created to Vercel
+- Framework Present: `Other`
+- Root Directory: `./`
+- No need to configure Build and Output setting
+
+**Add Only these 5 environment variable (IMPORTANT)**
 - `ALLOWED_HOSTS`: 127.0.0.1,.vercel.app
-- `DEBUG`
-- `SECRET_KEY`
+- `DEBUG`: False
+- `SECRET_KEY`: (Add strong Django SECRET Key, Should be same as the local file)
 - `ADMIN_PATH` (Optional if you don't want your Admin route to be `admin`)
 - `POSTGRES_DB_PORT`: 5432
 
 ![](./assets/images/v1.png)
 
-After Deployment it's shows Error as it fails to connect to database
-
-![](./assets/images/v2.png)
-
-Connect PostgresSQL from Vercel Storage (Beta feature)
+Connect PostgresSQL from Vercel Storage (Beta feature), if database exist or else create new PostgresSQL
 ![](./assets/images/v3.png)
 
 After Successfuly connecting the Database, it will add all the environment variable related to Postgres.
 
 ![](./assets/images/v4.png)
 
-### 6. Changes from Localhost
+## 6. Changes from Local Device
 
-Copy all the necessary environment variable to localhost in `.env` to run migration and createsuperuser locally
+Copy all the necessary environment variable to localhost in `.env`. Moreover the environment variable in localhost and in Vercel should be same.
 
+This will allow us to perform migrations and create superuser for local device.
+
+Only copy 4 postgres environment variable to local. Rest of it is not required
+- POSTGRES_DATABASE
+- POSTGRES_USER
+- POSTGRES_HOST
+- POSTGRES_PASSWORD
+
+The resulting `.env` file in the local device will look like this
 ```env
 DEBUG='True'
-SECRET_KEY='***'
+SECRET_KEY='django-key-should-be-strong-^28%=s79k2icoihozrx-cx'
 ALLOWED_HOSTS='127.0.0.1,.vercel.app'
 POSTGRES_DATABASE='***'
 POSTGRES_USER='***'
 POSTGRES_PASSWORD='***'
 POSTGRES_HOST='***'
 POSTGRES_DB_PORT='5432'
-ADMIN_PATH='***'
+ADMIN_PATH='my-admin'
+```
+
+Start the local server again to load the current change in environment variable
+
+```bash
+py manage.py runserver
 ```
 
 Create superuser
@@ -124,40 +168,87 @@ Create superuser
 py manage.py createsuperuser
 ```
 
+Issue: [Git Bash: Superuser creation skipped due to not running in a TTY](https://stackoverflow.com/questions/32532900/not-able-to-create-super-user-with-django-manage-py#answer-37093626)
+
 Create Migrations
 ```bash
 py manage.py makemigrations
 py manage.py migrate
 ```
 
-Collect Static
-```bash
-py manage.py collectstatic
-```
+## 7. Redeploy Vercel Project
 
-### 7. Push to Changes to Github
-
-```bash
-git add .
-git commit -m "Changes to Static Files"
-git push
-```
-
-After pushing the repository, vercel will automatically deploy it!
+As all the environment varible is now available, migration done and superuser is created. Now we can re-deploy the application without any error
 
 ![](./assets/images/v5.png)
 
 
-### 8. Open your Admin
+## 8. Open your Admin
 
 
-If ADMIN_PATH is set then path: `app-name.vercel.app/<ADMIN_PATH>`
+If ADMIN_PATH is set then path: `<app-name>/<ADMIN_PATH>`
 
-Otherwise path: `app-name.vercel.app/admin`
+Otherwise path: `<app-name>/admin`
 
 ![](./assets/images/v6.png)
 
-![coverage](https://img.shields.io/badge/Youtube%20Tutorial-Unavailable-red)]
+## 9. Configuration
+
+Change Admin Heading: [core/urls.py](./core/urls.py)
+
+```py
+# Admin Display
+admin.site.site_header = 'My Name'         
+admin.site.index_title = 'Portfolio'
+admin.site.site_title = 'Sandeep Shaw' 
+```
+
+Change HTML Pages: [templates/](./templates/)
+
+Scope for Adding images, css, js: [assets/](./assets/)
+
+After adding any static file, run the collectstatic command which will create folder: [static/](./static/)
+```bash
+py manage.py collectstatic
+```
+
+Changing the Theme Color: [templates/base.html](./templates/base.html)
+
+```html
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Scope to format color
+        tailwind.config = {
+            theme: {
+                extend: { 
+                    colors: {
+                        'shaw': {
+                            0: '#e2f3f1',
+                            100: '#c6e8e4',
+                            200: '#a9ddd6',
+                            300: '#96c7c1',
+                            400: '#83b1ab',
+                            500: '#5d857f',
+                            600: '#375954',
+                            700: '#24433e',
+                            800: '#1b3833',
+                            900: '#112c28',
+                            999: '#061714'
+                        },
+                    }
+                }
+            },
+        }
+    </script>
+```
+
+Custom 404 Error Page: [templates/404.html](./templates/404.html)
+
+Custom 500 Error Page: [templates/500.html](./templates/500.html)
+
+## Step-by-Step Video Tutorial
+
+![coverage](https://img.shields.io/badge/Youtube%20Tutorial-Unavailable-red)
 
 
 ## Resources and Reference
