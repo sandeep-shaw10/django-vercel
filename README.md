@@ -248,7 +248,7 @@ Custom 500 Error Page: [templates/500.html](./templates/500.html)
 
 ## Step-by-Step Video Tutorial
 
-![coverage](https://img.shields.io/badge/Youtube%20Tutorial-Unavailable-red)
+[![coverage](https://img.shields.io/badge/Youtube%20Tutorial-Visit-red)](https://www.youtube.com/watch?v=erLOWlo6nGA)
 
 
 ## Resources and Reference
